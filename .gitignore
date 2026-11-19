@@ -1,0 +1,7 @@
+*.out
+*.o
+*.so
+records.dat
+copy.dat
+.DS_Store
+__pycache__/
