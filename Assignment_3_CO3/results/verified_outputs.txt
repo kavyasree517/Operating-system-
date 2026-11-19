@@ -1,0 +1,44 @@
+=== Q2 (PAGE_SIZE=1024) ===
+   0 -> page 0 offset    0 : physical 5120
+1500 -> page 1 offset  476 : physical 2524
+3100 -> page 3 offset   28 : physical 7196
+6200 -> page 6 offset   56 : physical 3128
+9000 -> page 8 offset  808 : invalid address
+2049 -> page 2 offset    1 : page fault
+
+=== Q2 (PAGE_SIZE=2048) ===
+   0 -> page 0 offset    0 : physical 10240
+1500 -> page 0 offset 1500 : physical 11740
+3100 -> page 1 offset 1052 : physical 5148
+6200 -> page 3 offset   56 : physical 14392
+9000 -> page 4 offset  808 : physical 808
+2049 -> page 1 offset    1 : physical 4097
+
+=== Q3 ===
+Q1: VALID Physical = 4096 [Code (.text)]
+Q2: VALID Physical = 5946 [Code (.text)]
+Q3: TRAP Limit Violation (d=2500 >= 2500)
+Q4: TRAP Protection Fault (Write on R-X)
+Q5: VALID Physical = 9092 [Data (.data)]
+Q6: VALID Physical = 15287 [Heap (dynamic)]
+Q7: TRAP Limit Violation (d=2200 >= 2048)
+Q8: TRAP Invalid Segment 4
+
+=== Q4 ===
+Row-Major: 18.16 ms (minor_faults=4099, sum=8585740288)
+
+=== Q5 ===
+3 frames: FIFO 15, LRU 12, Optimal 9
+4 frames: FIFO 10, LRU 8, Optimal 8
+Belady string, FIFO: 3 frames 9 faults, 4 frames 10 faults
+
+=== Q6 ===
+RAID 0 : 24.0 TB | 0 failures
+RAID 1 : 12.0 TB | 1/pair | P_loss=0.001000
+RAID 5 : 20.0 TB | 1 disk | P_loss=0.004990
+RAID 6 : 16.0 TB | 2 disks| P_loss=0.00001000
+RAID 10: 12.0 TB | 1/pair | P_loss=0.001000 (RECOMMENDED)
+
+=== Q7 ===
+[UNLOCKED] Max Delay: 78.33 us | Minor Faults: 115
+[LOCKED] Max Delay: 0.45 us | Minor Faults: 0
