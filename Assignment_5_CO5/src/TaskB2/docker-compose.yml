@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: portal
+      POSTGRES_PASSWORD: portal_secret_password
+      POSTGRES_DB: results_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: "1.00"
+          memory: 512M
+  portal:
+    build: .
+    image: result-portal:latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+volumes:
+  pgdata:

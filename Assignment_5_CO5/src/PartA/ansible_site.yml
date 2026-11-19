@@ -1,0 +1,16 @@
+- name: Configure and Harden University Result Portal Servers
+  hosts: portal_servers
+  become: true
+  tasks:
+    - name: Create dedicated non-privileged service account portal_svc
+      ansible.builtin.user:
+        name: portal_svc
+        system: true
+        shell: /usr/sbin/nologin
+        home: /opt/result-portal
+        state: present
+    - name: Install Nginx, Python3, Gunicorn, and UFW
+      ansible.builtin.apt:
+        name: [nginx, python3, python3-pip, gunicorn, ufw]
+        state: present
+        update_cache: true

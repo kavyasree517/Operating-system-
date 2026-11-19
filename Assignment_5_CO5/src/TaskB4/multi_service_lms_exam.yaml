@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exam-lms-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: exam-lms
+  template:
+    metadata:
+      labels:
+        app: exam-lms
+    spec:
+      containers:
+        - name: exam-lms
+          image: simats/exam-lms:1.0
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1024Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exam-lms-service
+spec:
+  type: ClusterIP
+  selector:
+    app: exam-lms
+  ports:
+    - port: 8080
+      targetPort: 8080
