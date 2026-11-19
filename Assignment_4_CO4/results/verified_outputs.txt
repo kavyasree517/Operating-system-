@@ -1,0 +1,24 @@
+=== Task 1 ===
+Task 1 Directory Lookup: Flat O(N=600,000) vs 4-Level Acyclic Graph HTree O(d log_B M)
+Single Scan Time: Flat = 194.00 us | Hierarchical Student Dir = 0.17 us (acc=179999701225)
+
+=== Task 2 ===
+AAAAAA........CCCCC.............
+E (10 blocks) contiguous: start 19
+E (10 blocks) indexed: index block 6, data blocks 7 8 9 10 11 12 13 29 30 31
+AAAAAAeEEEEEEECCCCCEEEEEEEEEEEEE
+
+=== Task 4 ===
+FCFS   53 98 183 37 122 14 124 65 67  -> 640 cylinders
+SSTF   53 65 67 37 14 98 122 124 183  -> 236 cylinders
+SCAN   53 37 14 0 65 67 98 122 124 183  -> 236 cylinders
+C-SCAN 53 ... 199, jump to 0 ... 37  -> 183 cylinders (+199 for the jump)
+
+=== Task 5 ===
+Single NFS      : Raw=100.0 TB | Unavail=1.0000%
+Distributed 3x  : Raw=300.0 TB | Unavail=0.000100%
+Erasure EC (4+2): Raw=150.0 TB | Unavail=0.001500%
+
+=== Task 6 ===
+Design A (Hybrid NVMe+XFS): reads=8037, avg=2.84 ms, max=17.80 ms
+Design B (All-HDD FCFS)   : reads=30000, avg=115.20 ms, max=255.50 ms
