@@ -1,0 +1,57 @@
+=== Q1 ===
+Exam Server Master PID: 4549
+--- /proc/4550/status [Student-Session (WAITING/Sleeping)] ---
+  Name:	_tmp_bin_q1_exa
+  State:	S (sleeping)
+  Pid:	4550
+  PPid:	4549
+  VmRSS:	     532 kB
+  VmPTE:	      44 kB
+  voluntary_ctxt_switches:	1
+  nonvoluntary_ctxt_switches:	0
+--- /proc/4552/status [Video-Proctor (TERMINATED/Zombie)] ---
+  Name:	_tmp_bin_q1_exa
+  State:	Z (zombie)
+  Pid:	4552
+  PPid:	4549
+  voluntary_ctxt_switches:	1
+  nonvoluntary_ctxt_switches:	0
+All child processes reaped cleanly.
+
+=== Q2 ===
+Gantt: P1(0-3) P2(3-6) P3(6-9) P4(9-12) P1(12-15) P2(15-16) P3(16-19) P4(19-21) P1(21-23) P3(23-26)
+Process  TAT  WT
+P1        23  15
+P2        15  11
+P3        24  15
+P4        18  13
+Average TAT = 20.00, average WT = 13.50
+
+=== Q3 ===
+Pool 1  threads:    0.09 ms (Speedup 1.00x, Plates=64)
+Pool 4  threads:    0.10 ms (Speedup 0.91x, Plates=64)
+Pool 8  threads:    0.15 ms (Speedup 0.60x, Plates=64)
+Pool 16 threads:    0.35 ms (Speedup 0.24x, Plates=64)
+Pool 64 threads:    1.42 ms (Speedup 0.06x, Plates=64)
+Unprotected Counter Race: Expected=400000, Actual=400000
+
+=== Q4 Pipe ===
+analyser: 6 readings, average 35.5, max 41
+reader: done
+
+=== Q4 SHM ===
+reader: done
+
+=== Q5 ===
+items consumed: 20, sum = 210 (expected 210)
+
+=== Q6 Banker's ===
+initial state safe: P1 P3 P4 P0 P2
+P1 request: granted, safe sequence P1 P3 P4 P0 P2
+P4 request: must wait (not available)
+P0 request: denied (unsafe)
+
+=== Q6 Scaling ===
+n =   10, m = 3 -> safe = 1, time =     0.47 microseconds
+n =  100, m = 3 -> safe = 1, time =     5.08 microseconds
+n = 1000, m = 3 -> safe = 1, time =   348.01 microseconds
