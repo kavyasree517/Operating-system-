@@ -1,0 +1,15 @@
+=== Task 6 ===
+buffer    1 bytes: 10001 read() calls
+buffer  512 bytes:    21 read() calls
+buffer 4096 bytes:     4 read() calls
+
+=== Task 7 ===
+shell: running job 1
+42
+job 1 exit status 0
+shell: running job 2
+job 2 exit status 3
+
+=== Task 10 ===
+1000 Processes (fork+waitpid): 108.38 ms (Max RSS: 12440 KB)
+1000 Threads (pthread_create+join): 25.07 ms (Max RSS: 12440 KB)
